@@ -1,0 +1,15 @@
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+exclude = ["frontend", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# B008: FastAPI's `Depends(...)` as a default argument is the idiomatic
+# pattern (fastapi skill), not the mutable-default-argument bug B008 flags.
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+# Test fixtures construct RetrievedChunk with many kwargs on one line for
+# readability (mirrors the object being asserted on) — not worth wrapping.
+"tests/*" = ["E501"]

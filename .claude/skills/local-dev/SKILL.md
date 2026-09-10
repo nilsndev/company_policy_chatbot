@@ -25,14 +25,15 @@ description: Local development loop with no Docker (Python venv + npm, hosted Su
 
 ## Seed
 
-- Deterministic markdown docs in `fixtures/` (the MHN policy corpus, `PRD.md` §1) so RAG works without re-authoring content each time.
-- Seed script writes to **both** the Supabase Cloud dev project (chunks/embeddings) and the Neo4j Aura dev instance (graph nodes/relationships) — keep them in sync, see `graph` skill.
-- Optional: recorded embeddings for the fixture corpus, to skip re-embedding on every reset.
+- Deterministic markdown docs in `corpus/policies/` (the MHN policy corpus, `PRD.md` §1, ~24 files with a YAML frontmatter block: title/department/version/supersedes) so RAG works without re-authoring content each time.
+- `python scripts/seed_corpus.py` uploads each file to Supabase Storage and upserts `policies` + a queued `ingestion_jobs` row; `python worker.py` drains the queue (parse → chunk → embed → `policy_chunks`). Rerunning the seed script is safe — upsert on `slug`, and the worker is idempotent on `content_hash`.
+- As of M2, the seed script writes to Supabase only (vector-only retrieval). Writing the same corpus into the Neo4j Aura dev instance (graph nodes/relationships for RBAC + supersedes/references) is M3 — see `graph` skill; the two are not yet kept in sync.
 
 ## Debugging
 
 - One `DEBUG` flag for verbose retrieval logs. Off by default.
 - Langfuse/OTel optional via env; app must run without them.
+- This dev machine's network does TLS interception (corporate/AV SSL inspection) on outbound HTTPS/Bolt — a symptom is `SSL: CERTIFICATE_VERIFY_FAILED: self-signed certificate in certificate chain` on a connection whose DNS/TCP work fine (seen first against Neo4j Aura). Fix: the `truststore` package + `truststore.inject_into_ssl()` called once at app startup (`app/main.py`), which delegates cert trust to the OS-native store instead of Python's bundled CA bundle — not a verification bypass. Applies to any outbound TLS call from this process, not just Neo4j.
 
 ## Do not
 

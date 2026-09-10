@@ -53,7 +53,7 @@ When a policy is ingested/updated (`ingestion` skill), the graph write is a sepa
 
 ## Local dev
 
-Neo4j runs in Docker Compose alongside Supabase local (see `local-dev`). Use the official `neo4j` image, Bolt driver from FastAPI (`neo4j` Python package), credentials from `.env` (`NEO4J_URI`, `NEO4J_USER`, `NEO4J_PASSWORD`) — never hardcoded.
+Neo4j is a **Neo4j Aura Free** hosted dev instance, not local/containerized (see `local-dev` — no Docker on this machine). Bolt driver from FastAPI (`neo4j` Python package), credentials from `.env` (`NEO4J_URI` as `neo4j+s://...`, `NEO4J_USER`, `NEO4J_PASSWORD`) — never hardcoded.
 
 ## Do not
 

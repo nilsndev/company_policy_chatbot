@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "k": 6,
+  "personas": {
+    "priya": {"email": "eval.priya@mhn.test", "department": "Clinical", "role": "staff"},
+    "marcus": {"email": "eval.marcus@mhn.test", "department": "IT & Security", "role": "manager"},
+    "dana": {"email": "eval.dana@mhn.test", "department": "Compliance & Risk", "role": "compliance_officer"},
+    "sam": {"email": "eval.sam@mhn.test", "department": "HR", "role": "staff"}
+  },
+  "cases": [
+    {
+      "id": "priya-01",
+      "persona": "priya",
+      "category": "in_scope",
+      "question": "What PPE do I need before entering a patient's room under isolation precautions?",
+      "expected_doc_ids": ["infection-control-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "priya-02",
+      "persona": "priya",
+      "category": "in_scope",
+      "question": "How quickly do I need to complete my clinical notes after seeing a patient?",
+      "expected_doc_ids": ["clinical-documentation-standards-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "priya-03",
+      "persona": "priya",
+      "category": "cross_reference",
+      "question": "Before I give insulin, what verification steps should I follow and what else should I know about documenting or reporting it?",
+      "expected_doc_ids": ["medication-administration-safety-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": ["patient-safety-incident-reporting-policy", "clinical-documentation-standards-policy"]
+    },
+    {
+      "id": "priya-04",
+      "persona": "priya",
+      "category": "in_scope",
+      "question": "Can I report a coworker's misconduct anonymously?",
+      "expected_doc_ids": ["code-of-conduct-v2"],
+      "forbidden_doc_ids": ["code-of-conduct-v1"],
+      "expected_related_ids": []
+    },
+    {
+      "id": "priya-05",
+      "persona": "priya",
+      "category": "isolation",
+      "question": "What's the corporate card policy for reimbursing purchases I make for the unit?",
+      "expected_doc_ids": [],
+      "forbidden_doc_ids": ["corporate-card-policy", "travel-and-expense-policy", "procurement-and-vendor-policy"],
+      "expected_related_ids": []
+    },
+    {
+      "id": "priya-06",
+      "persona": "priya",
+      "category": "in_scope",
+      "question": "How do I know if a patient safety event needs to go through the non-punitive review process?",
+      "expected_doc_ids": ["patient-safety-incident-reporting-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "marcus-01",
+      "persona": "marcus",
+      "category": "in_scope",
+      "question": "What are the minimum password requirements for MHN systems?",
+      "expected_doc_ids": ["password-and-access-management-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "marcus-02",
+      "persona": "marcus",
+      "category": "superseded",
+      "question": "Can an employee work remotely from another country for a few weeks?",
+      "expected_doc_ids": ["remote-work-policy-v2"],
+      "forbidden_doc_ids": ["remote-work-policy-v1"],
+      "expected_related_ids": []
+    },
+    {
+      "id": "marcus-03",
+      "persona": "marcus",
+      "category": "cross_reference",
+      "question": "What should I do first if I suspect a security incident, and who else gets involved if patient data might be exposed?",
+      "expected_doc_ids": ["incident-response-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": ["data-breach-notification-policy", "password-and-access-management-policy"]
+    },
+    {
+      "id": "marcus-04",
+      "persona": "marcus",
+      "category": "in_scope",
+      "question": "Can employees install their own software on a company laptop?",
+      "expected_doc_ids": ["acceptable-use-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "marcus-05",
+      "persona": "marcus",
+      "category": "isolation",
+      "question": "What's the process for reporting a patient safety event?",
+      "expected_doc_ids": [],
+      "forbidden_doc_ids": [
+        "patient-safety-incident-reporting-policy",
+        "medication-administration-safety-policy",
+        "infection-control-policy",
+        "clinical-documentation-standards-policy"
+      ],
+      "expected_related_ids": []
+    },
+    {
+      "id": "marcus-06",
+      "persona": "marcus",
+      "category": "in_scope",
+      "question": "How fast is system access revoked after someone leaves the company?",
+      "expected_doc_ids": ["password-and-access-management-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "dana-01",
+      "persona": "dana",
+      "category": "in_scope",
+      "question": "What's our timeline for notifying patients if a breach affects 500 or more of them?",
+      "expected_doc_ids": ["data-breach-notification-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "dana-02",
+      "persona": "dana",
+      "category": "cross_dept_allowed",
+      "question": "What hand hygiene and PPE rules apply in clinical care areas?",
+      "expected_doc_ids": ["infection-control-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "dana-03",
+      "persona": "dana",
+      "category": "cross_dept_allowed",
+      "question": "What approval is required to issue someone a corporate card?",
+      "expected_doc_ids": ["corporate-card-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "dana-04",
+      "persona": "dana",
+      "category": "cross_reference",
+      "question": "How does the Patient Data Privacy Policy relate to how we classify sensitive data?",
+      "expected_doc_ids": ["patient-data-privacy-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": ["data-classification-policy"]
+    },
+    {
+      "id": "dana-05",
+      "persona": "dana",
+      "category": "superseded",
+      "question": "What are MHN's expectations around disclosing a conflict of interest?",
+      "expected_doc_ids": ["code-of-conduct-v2"],
+      "forbidden_doc_ids": ["code-of-conduct-v1"],
+      "expected_related_ids": []
+    },
+    {
+      "id": "dana-06",
+      "persona": "dana",
+      "category": "in_scope",
+      "question": "What are the four data sensitivity tiers at MHN?",
+      "expected_doc_ids": ["data-classification-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "sam-01",
+      "persona": "sam",
+      "category": "in_scope",
+      "question": "What should I expect to complete during my first week on the job?",
+      "expected_doc_ids": ["employee-onboarding-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "sam-02",
+      "persona": "sam",
+      "category": "in_scope",
+      "question": "How many weeks of paid parental leave do I get after having a baby?",
+      "expected_doc_ids": ["parental-leave-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "sam-03",
+      "persona": "sam",
+      "category": "in_scope",
+      "question": "How much PTO do I accrue as a new employee, and how far ahead do I need to request it?",
+      "expected_doc_ids": ["leave-and-time-off-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "sam-04",
+      "persona": "sam",
+      "category": "in_scope",
+      "question": "Who can I report a harassment concern to if it involves my own manager?",
+      "expected_doc_ids": ["workplace-conduct-and-anti-harassment-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": []
+    },
+    {
+      "id": "sam-05",
+      "persona": "sam",
+      "category": "isolation",
+      "question": "What's the process for detecting and containing a security incident?",
+      "expected_doc_ids": [],
+      "forbidden_doc_ids": ["incident-response-policy", "password-and-access-management-policy"],
+      "expected_related_ids": []
+    },
+    {
+      "id": "sam-06",
+      "persona": "sam",
+      "category": "cross_reference",
+      "question": "What company-wide training do I need to finish in my first week?",
+      "expected_doc_ids": ["employee-onboarding-policy"],
+      "forbidden_doc_ids": [],
+      "expected_related_ids": ["code-of-conduct-v2", "acceptable-use-policy", "workplace-conduct-and-anti-harassment-policy"]
+    }
+  ]
+}
