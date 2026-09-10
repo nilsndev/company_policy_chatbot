@@ -96,4 +96,4 @@ A short script for showing this end-to-end (assumes the corpus and graph are see
 
 ## Status
 
-M0 (foundations) through M6 (eval) are complete — see [`PROGRESS.md`](PROGRESS.md) for the full milestone log, including issues hit and how they were fixed. Remaining: M7 (CI/lint gating, this README) is in progress; M8 (AWS free-tier deploy) is a later phase, not required for the local demo above.
+M0 through M8 are complete — see [`PROGRESS.md`](PROGRESS.md) for the full milestone log, including issues hit and how they were fixed. The app is also deployed live on a single AWS EC2 instance (native processes — API, worker, Ollama, nginx — no Docker/ECS/ALB/RDS); see PROGRESS.md's M8 section for the setup and the account/cost caveats (it's a $-credit AWS account, not the old always-free tier, so the instance is started on demand rather than left running 24/7).
